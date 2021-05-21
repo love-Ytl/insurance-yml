@@ -1,0 +1,52 @@
+spring:
+  profiles:
+    active: dev
+---
+server:
+  port: 8001
+spring:
+  profiles: dev
+  datasource:
+    username: root
+    password: daasan7ujm^YHN
+    url: jdbc:mysql://47.101.41.147/insuranceDB?Unicode=utf8$characterEncoding=utf-8
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+  application:
+    name: insurance-provider-user-8001
+  cloud:
+    consul:
+      host: 47.101.41.147
+      port: 8500
+      discovery:
+        hostname: 47.101.41.147
+        service-name: ${spring.application.name}
+        register: true
+mybatis:
+  type-aliases-package: com.ytl.insurance.pojo
+  mapper-locations: classpath:mapper/*.xml
+  
+---
+server:
+  port: 8001
+spring:
+  profiles: test
+  datasource:
+    username: root
+    password: daasan7ujm^YHN
+    url: jdbc:mysql://47.101.41.147/insuranceDB?Unicode=utf8$characterEncoding=utf-8
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+  application:
+    name: insurance-provider-user-8001
+  cloud:
+    consul:
+      host: 47.101.41.147
+      port: 8500
+      discovery:
+        hostname: 47.101.41.147
+        service-name: ${spring.application.name}
+        register: true
+mybatis:
+  type-aliases-package: com.ytl.insurance.pojo
+  mapper-locations: classpath:mapper/*.xml
