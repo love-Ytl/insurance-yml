@@ -16,7 +16,7 @@ spring:
     name: insurance-provider-user-8001
   cloud:
     consul:
-      host: 47.101.41.147
+      host: ytl180124.top
       port: 8500
       discovery:
         hostname: 47.101.41.147
@@ -41,7 +41,7 @@ spring:
     name: insurance-provider-user-8001
   cloud:
     consul:
-      host: 47.101.41.147
+      host: ytl180124.top
       port: 8500
       discovery:
         hostname: 47.101.41.147
