@@ -1,0 +1,46 @@
+spring:
+  profiles: 
+    active: dev
+
+---
+#服务端口
+server:
+  port: 9001
+#数据库连接
+spring:
+  application:
+    name: insurance-consumer-user
+  profiles: dev
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        #在consul服务器对外暴露的名称
+        service-name: ${spring.application.name}
+        #主机名称
+        hostname: 127.0.0.1
+        #是否到注册中心注册
+        register: true
+        
+---
+#服务端口
+server:
+  port: 9001
+#数据库连接
+spring:
+  application:
+    name: cloud-consumer-goods
+  profiles: test
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        #在consul服务器对外暴露的名称
+        service-name: ${spring.application.name}
+        #主机名称
+        hostname: 127.0.0.1
+        #是否到注册中心注册
+        register: true
+
