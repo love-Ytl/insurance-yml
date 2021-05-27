@@ -1,0 +1,60 @@
+spring:
+  profiles: 
+    active: dev
+
+---
+server
+  port 8100
+spring
+  application
+    name insurance-provider-warranty
+  profiles: dev
+  cloud
+    consul
+      host localhost
+      port 8500
+      discovery
+        hostname 127.0.0.1
+        service-name ${spring.application.name}
+        register true
+  datasource
+    username root
+    password daasan7ujm^YHN
+    url jdbcmysql47.101.41.147insuranceDBUnicode=utf8$characterEncoding=utf-8
+    type com.alibaba.druid.pool.DruidDataSource
+    driver-class-name com.mysql.jdbc.Driver
+  redis
+    host 47.101.41.147
+    port 6379
+    password ytl123456
+mybatis
+  type-aliases-package com.ytl.insurance.pojo
+  mapper-locations classpathmapper.xml
+---
+server
+  port 8100
+spring
+  application
+    name insurance-provider-warranty
+  profiles: test
+  cloud
+    consul
+      host localhost
+      port 8500
+      discovery
+        hostname 127.0.0.1
+        service-name ${spring.application.name}
+        register true
+  datasource
+    username root
+    password daasan7ujm^YHN
+    url jdbcmysql47.101.41.147insuranceDBUnicode=utf8$characterEncoding=utf-8
+    type com.alibaba.druid.pool.DruidDataSource
+    driver-class-name com.mysql.jdbc.Driver
+  redis
+    host 47.101.41.147
+    port 6379
+    password ytl123456
+mybatis
+  type-aliases-package com.ytl.insurance.pojo
+  mapper-locations classpathmapper.xml
